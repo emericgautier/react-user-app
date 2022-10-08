@@ -11,6 +11,14 @@ const Card = ({ user }) => {
     return newDate;
   };
 
+  // calculer la différence, membre depuis...
+  const dayCalc = (date) => {
+    let today = new Date();
+    let todayTimestamp = Date.parse(today);
+    let timestamp = Date.parse(date);
+
+    return Math.ceil((todayTimestamp - timestamp) / 8.64e7);
+  };
   return (
     <div className="card">
       <img src={user.picture.large} alt={user.name.first} />
@@ -20,7 +28,7 @@ const Card = ({ user }) => {
       <p>
         {user.location.country}, {dateParser(user.dob.date)}
       </p>
-      <em>Membre depuis : {user.registered.date}</em>
+      <em>Membre depuis : {dayCalc(user.registered.date)} jours</em>
     </div>
   );
 };
