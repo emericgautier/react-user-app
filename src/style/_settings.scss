@@ -1,7 +1,32 @@
-* {
+body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-body {
-    
+h1 {
+    width: 90%;
+    margin: 20px auto;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1px;
+    font-weight: 100;
+    position: relative;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+
+    &::before, &::after {
+        content : "";    
+        width: 37%;
+        height: 1px;
+        background: rgb(209, 209, 209);
+        top: 50%;
+        transform: translate(-50% -50%);
+        position: absolute;
+    }
+
+    &::before {
+        left: 0;
+    }
+
+    &::after {
+        right: 0;
+    }
 }
